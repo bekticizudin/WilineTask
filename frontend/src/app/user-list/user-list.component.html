@@ -15,23 +15,20 @@
     </tr>
     <!-- Iterate over the 'users' array and create a table row for each user -->
     <tr *ngFor="let user of users">
-      <td>{{user.id}}</td> <!-- Display user ID -->
-      <td>{{ user.firstName }}</td> <!-- Display user first name -->
-      <td>{{ user.lastName }}</td> <!-- Display user last name -->
-      <td>{{ user.email }}</td> <!-- Display user email -->
-      <td>{{ user.phoneNumber }}</td> <!-- Display user phone number -->
+      <td>{{user.id}}</td> 
+      <td>{{ user.firstName }}</td> 
+      <td>{{ user.lastName }}</td> 
+      <td>{{ user.email }}</td> 
+      <td>{{ user.phoneNumber }}</td> 
       <td>
-        <!-- Button to navigate to the edit user view -->
         <button (click)="editUser(user.id)">Edit</button> 
-        <!-- Button to delete the user -->
         <button (click)="deleteUser(user.id)">Delete</button>
       </td>
     </tr>
   </table>
 
-  <!-- Header for the create user form -->
+  <!-- Create user form -->
   <h2>Create User</h2>
-  <!-- Form for creating a new user -->
   <form (ngSubmit)="createUser()">
     <div>
       <label for="firstName">First Name</label>

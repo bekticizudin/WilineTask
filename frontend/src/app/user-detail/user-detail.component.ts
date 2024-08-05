@@ -12,30 +12,26 @@ export class UserDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute, // Provides access to route parameters
-    private router: Router, // Provides navigation capabilities
+    private router: Router, // Provides navigation
     private userService: UserService // Service to interact with the backend API
   ) {}
 
+  // Extracts the user ID from the route parameters
   ngOnInit(): void {
-    // Extracts the user ID from the route parameters
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    // Fetches user data from the server using the ID
     this.userService.getUser(id).subscribe((data: User) => {
-      this.user = data; // Sets the user data to the component property
+      this.user = data;
     });
   }
 
   save(): void {
     // Checks if user data is available
     if (this.user) {
-      // Sends a request to update the user data on the server
       this.userService.updateUser(this.user.id, this.user).subscribe({
         next: () => {
-          // Navigates back to the user list page upon successful update
           this.router.navigate(['/users']);
         },
         error: (err) => {
-          // Logs any errors that occur during the update process
           console.error('Error occurred:', err);
         }
       });
