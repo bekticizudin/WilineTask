@@ -1,0 +1,59 @@
+<div>
+  <!-- Header for the user list section -->
+  <h2>User List</h2>
+
+  <!-- Table displaying the list of users -->
+  <table>
+    <tr>
+      <!-- Table headers -->
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Phone Number</th>
+      <th>Actions</th>
+    </tr>
+    <!-- Iterate over the 'users' array and create a table row for each user -->
+    <tr *ngFor="let user of users">
+      <td>{{user.id}}</td> <!-- Display user ID -->
+      <td>{{ user.firstName }}</td> <!-- Display user first name -->
+      <td>{{ user.lastName }}</td> <!-- Display user last name -->
+      <td>{{ user.email }}</td> <!-- Display user email -->
+      <td>{{ user.phoneNumber }}</td> <!-- Display user phone number -->
+      <td>
+        <!-- Button to navigate to the edit user view -->
+        <button (click)="editUser(user.id)">Edit</button> 
+        <!-- Button to delete the user -->
+        <button (click)="deleteUser(user.id)">Delete</button>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Header for the create user form -->
+  <h2>Create User</h2>
+  <!-- Form for creating a new user -->
+  <form (ngSubmit)="createUser()">
+    <div>
+      <label for="firstName">First Name</label>
+      <!-- Input field for user first name -->
+      <input id="firstName" [(ngModel)]="newUser.firstName" name="firstName" />
+    </div>
+    <div>
+      <label for="lastName">Last Name</label>
+      <!-- Input field for user last name -->
+      <input id="lastName" [(ngModel)]="newUser.lastName" name="lastName" />
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <!-- Input field for user email -->
+      <input id="email" [(ngModel)]="newUser.email" name="email" />
+    </div>
+    <div>
+      <label for="phoneNumber">Phone Number</label>
+      <!-- Input field for user phone number -->
+      <input id="phoneNumber" [(ngModel)]="newUser.phoneNumber" name="phoneNumber" />
+    </div>
+    <!-- Button to submit the form and create a new user -->
+    <button type="submit">Create</button>
+  </form>
+</div>

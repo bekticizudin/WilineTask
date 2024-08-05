@@ -1,0 +1,35 @@
+<!-- This div will only be shown if the 'user' object exists -->
+<div *ngIf="user">
+  <h1>Edit User</h1>
+  
+  <!-- Form to edit user details, calls 'save()' on submission -->
+  <form (ngSubmit)="save()">
+  
+    <!-- Input for the user's first name -->
+    <div>
+      <label for="firstName">First Name</label>
+      <input id="firstName" [(ngModel)]="user.firstName" name="firstName" />
+    </div>
+    
+    <!-- Input for the user's last name -->
+    <div>
+      <label for="lastName">Last Name</label>
+      <input id="lastName" [(ngModel)]="user.lastName" name="lastName" />
+    </div>
+    
+    <!-- Input for the user's email -->
+    <div>
+      <label for="email">Email</label>
+      <input id="email" [(ngModel)]="user.email" name="email" />
+    </div>
+    
+    <!-- Input for the user's phone number -->
+    <div>
+      <label for="phoneNumber">Phone Number</label>
+      <input id="phoneNumber" [(ngModel)]="user.phoneNumber" name="phoneNumber" />
+    </div>
+    
+    <!-- Button to submit the form and save changes -->
+    <button type="submit">Save</button>
+  </form>
+</div>
